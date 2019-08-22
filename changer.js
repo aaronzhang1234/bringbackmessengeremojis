@@ -457,11 +457,11 @@ var emojidict = {
     '1f46b.png': 'man-and-woman-holding-hands_1f46b.png', 
     '1f46c.png': 'two-men-holding-hands_1f46c.png', 
     '1f48f.png': 'kiss_1f48f.png', 
-    '1f468_200d_2764_fe0f_200d_1f48b_200d_1f468.png': 'kiss-man-man_1f468-200d-2764-fe0f-200d-1f48b-200d-1f468.png', 
-    '1f469_200d_2764_fe0f_200d_1f48b_200d_1f469.png': 'kiss-woman-woman_1f469-200d-2764-fe0f-200d-1f48b-200d-1f469.png', 
+    '1f468_200d_2764_200d_1f48b_200d_1f468.png': 'kiss-man-man_1f468-200d-2764-fe0f-200d-1f48b-200d-1f468.png', 
+    '1f469_200d_2764_200d_1f48b_200d_1f469.png': 'kiss-woman-woman_1f469-200d-2764-fe0f-200d-1f48b-200d-1f469.png', 
     '1f491.png': 'couple-with-heart_1f491.png', 
-    '1f468_200d_2764_fe0f_200d_1f468.png': 'couple-with-heart-man-man_1f468-200d-2764-fe0f-200d-1f468.png', 
-    '1f469_200d_2764_fe0f_200d_1f469.png': 'couple-with-heart-woman-woman_1f469-200d-2764-fe0f-200d-1f469.png', 
+    '1f468_200d_2764_200d_1f468.png': 'couple-with-heart-man-man_1f468-200d-2764-fe0f-200d-1f468.png', 
+    '1f469_200d_2764_200d_1f469.png': 'couple-with-heart-woman-woman_1f469-200d-2764-fe0f-200d-1f469.png', 
     '1f46a.png': 'family_1f46a.png', 
     '1f468_200d_1f469_200d_1f467.png': 'family-man-woman-girl_1f468-200d-1f469-200d-1f467.png', 
     '1f468_200d_1f469_200d_1f467_200d_1f466.png': 'family-man-woman-girl-boy_1f468-200d-1f469-200d-1f467-200d-1f466.png', 
@@ -1065,17 +1065,17 @@ var emojidict = {
     'a9.png': 'copyright-sign_a9.png', 
     'ae.png': 'registered-sign_ae.png', 
     '2122.png': 'trade-mark-sign_2122.png', 
-    '23_fe0f_20e3.png': 'keycap-number-sign_23-fe0f-20e3.png', 
-    '30_fe0f_20e3.png': 'keycap-digit-zero_30-fe0f-20e3.png', 
-    '31_fe0f_20e3.png': 'keycap-digit-one_31-fe0f-20e3.png', 
-    '32_fe0f_20e3.png': 'keycap-digit-two_32-fe0f-20e3.png', 
-    '33_fe0f_20e3.png': 'keycap-digit-three_33-fe0f-20e3.png', 
-    '34_fe0f_20e3.png': 'keycap-digit-four_34-fe0f-20e3.png', 
-    '35_fe0f_20e3.png': 'keycap-digit-five_35-fe0f-20e3.png', 
-    '36_fe0f_20e3.png': 'keycap-digit-six_36-fe0f-20e3.png', 
-    '37_fe0f_20e3.png': 'keycap-digit-seven_37-fe0f-20e3.png', 
-    '38_fe0f_20e3.png': 'keycap-digit-eight_38-fe0f-20e3.png', 
-    '39_fe0f_20e3.png': 'keycap-digit-nine_39-fe0f-20e3.png', 
+    '23_20e3.png': 'keycap-number-sign_23-fe0f-20e3.png', 
+    '30_20e3.png': 'keycap-digit-zero_30-fe0f-20e3.png', 
+    '31_20e3.png': 'keycap-digit-one_31-fe0f-20e3.png', 
+    '32_20e3.png': 'keycap-digit-two_32-fe0f-20e3.png', 
+    '33_20e3.png': 'keycap-digit-three_33-fe0f-20e3.png', 
+    '34_20e3.png': 'keycap-digit-four_34-fe0f-20e3.png', 
+    '35_20e3.png': 'keycap-digit-five_35-fe0f-20e3.png', 
+    '36_20e3.png': 'keycap-digit-six_36-fe0f-20e3.png', 
+    '37_20e3.png': 'keycap-digit-seven_37-fe0f-20e3.png', 
+    '38_20e3.png': 'keycap-digit-eight_38-fe0f-20e3.png', 
+    '39_20e3.png': 'keycap-digit-nine_39-fe0f-20e3.png', 
     '1f51f.png': 'keycap-ten_1f51f.png', 
     '1f520.png': 'input-symbol-for-latin-capital-letters_1f520.png', 
     '1f521.png': 'input-symbol-for-latin-small-letters_1f521.png', 
@@ -1182,7 +1182,8 @@ var emojidict = {
     '1f1f9_1f1f7.png': 'flag-for-turkey_1f1f9-1f1f7.png', 
     '1f1fa_1f1f8.png': 'flag-for-united-states_1f1fa-1f1f8.png', 
     '1f1fb_1f1f3.png': 'flag-for-vietnam_1f1fb-1f1f3.png', 
-    '1f1ff_1f1e6.png': 'flag-for-south-africa_1f1ff-1f1e6.png',         
+    '1f1ff_1f1e6.png': 'flag-for-south-africa_1f1ff-1f1e6.png', 
+    
 };
 let callback = function(list){ 
     list.forEach(element => {
@@ -1241,7 +1242,7 @@ function checkurl(){
     if(oldUrl!= newUrl){
         setTimeout(changeAll,500);
         oldUrl = newUrl;
-
+        retries = 0;
     }
 }
 var retries = 0;
