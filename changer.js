@@ -1201,6 +1201,7 @@ function changeAll(){
         observer.observe(chat, config);
         clearInterval(variableinterval);
         changeNode(chat); 
+        retries = 0;
     }
     catch(error){
         retries = retries+1;
@@ -1234,13 +1235,13 @@ function changeNode(node){
 
 let config = {childList:true, subtree:true};
 let chat = document.getElementById('js_1');
-console.log(chat);
 
 function checkurl(){
     newUrl = window.location.href;
     if(oldUrl!= newUrl){
         setTimeout(changeAll,500);
         oldUrl = newUrl;
+
     }
 }
 var retries = 0;
