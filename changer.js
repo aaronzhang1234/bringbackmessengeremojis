@@ -1,6 +1,11 @@
 console.log("hello!");
 const emojipedia = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/facebook/65/";
 
+var retries = 0;
+var oldUrl = window.location.href;
+var newUrl = window.location.href;
+let chat = document.getElementById('js_1');
+
 var emojidict = {       
     '1f600.png': 'grinning-face_1f600.png', 
     '1f603.png': 'smiling-face-with-open-mouth_1f603.png', 
@@ -1182,9 +1187,9 @@ var emojidict = {
     '1f1f9_1f1f7.png': 'flag-for-turkey_1f1f9-1f1f7.png', 
     '1f1fa_1f1f8.png': 'flag-for-united-states_1f1fa-1f1f8.png', 
     '1f1fb_1f1f3.png': 'flag-for-vietnam_1f1fb-1f1f3.png', 
-    '1f1ff_1f1e6.png': 'flag-for-south-africa_1f1ff-1f1e6.png', 
-    
+    '1f1ff_1f1e6.png': 'flag-for-south-africa_1f1ff-1f1e6.png'
 };
+
 let callback = function(list){ 
     list.forEach(element => {
         if(element.addedNodes.length >=1){
@@ -1222,7 +1227,6 @@ function changeNode(node){
         var source_split = node_source.split("/");
         var img_path = source_split[source_split.length-1];
         console.log(img_path);
-        console.log(current_node);
         if(img_path.includes("200d_2640.png")){
             img_path = img_path.replace("_200d_2640", "");
         }
@@ -1233,10 +1237,6 @@ function changeNode(node){
     }
 }
 
-
-let config = {childList:true, subtree:true};
-let chat = document.getElementById('js_1');
-
 function checkurl(){
     newUrl = window.location.href;
     if(oldUrl!= newUrl){
@@ -1245,9 +1245,6 @@ function checkurl(){
         retries = 0;
     }
 }
-var retries = 0;
-var oldUrl = window.location.href;
-var newUrl = window.location.href;
 
 var variableinterval = setInterval(changeAll, 500);
-var websiteinterval = setInterval(checkurl, 200);
+//var websiteinterval = setInterval(checkurl, 200);
