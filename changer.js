@@ -1,3 +1,4 @@
+console.log("hello!")
 const emojipedia = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/facebook/65/";
 
 var emojidict = {       
