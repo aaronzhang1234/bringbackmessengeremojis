@@ -1,4 +1,3 @@
-console.log("hello!");
 const emojipedia = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/facebook/65/";
 
 var emojidict = {       
@@ -53,6 +52,7 @@ var emojidict = {
     '1f616.png': 'confounded-face_1f616.png', 
     '1f623.png': 'persevering-face_1f623.png', 
     '1f61e.png': 'disappointed-face_1f61e.png', 
+    '1f641.png': 'disappointed-face_1f61e.png', 
     '1f613.png': 'face-with-cold-sweat_1f613.png', 
     '1f629.png': 'weary-face_1f629.png', 
     '1f62b.png': 'tired-face_1f62b.png', 
@@ -1196,38 +1196,49 @@ let callback = function(list){
 }
 
 function changeAll(){
-    chat = document.getElementById('js_1');
+    let new_chat = document.querySelector('[aria-label="Messages"]')
+    let old_chat = document.getElementById('js_1');
     try{
-        observer = new MutationObserver(callback);
-        observer.observe(chat, config);
-        clearInterval(variableinterval);
-        changeNode(chat); 
-        retries = 0;
+        if(new_chat){
+            new_observer = new MutationObserver(callback);
+            new_observer.observe(new_chat, config);
+        }
+        if(old_chat){
+            old_observer = new MutationObserver(callback);
+            old_observer.observe(old_chat, config);
+        }
+        if(new_chat || old_chat){
+            clearInterval(variableinterval);
+            clearInterval(new_chat_interval);
+            clearInterval(old_chat_interval);
+            new_chat_interval = setInterval(changeNode(new_chat),2000)
+            old_chat_interval = setInterval(changeNode(old_chat),2000)
+            retries = 0;
+        }
     }
     catch(error){
         retries = retries+1;
         if(retries > 10){
             clearInterval(variableinterval);
-            console.log("failed to find :(")
             return;
         }
-        console.log("Trying Again");
     }
 }
 function changeNode(node){
-    var node_children = node.getElementsByTagName("img");
-    for(var i = 0; i<node_children.length; i++){
-        var current_node = node_children[i];    
-        var node_source = current_node.src;
-        var source_split = node_source.split("/");
-        var img_path = source_split[source_split.length-1];
-        console.log(img_path);
-        if(img_path.includes("200d_2640.png")){
-            img_path = img_path.replace("_200d_2640", "");
-        }
-        if(img_path in emojidict){
-            var emoji_url = emojipedia + emojidict[img_path];
-            current_node.src = emoji_url;
+    if(node){
+        var node_children = node.getElementsByTagName("img");
+        for(var i = 0; i<node_children.length; i++){
+            var current_node = node_children[i];    
+            var node_source = current_node.src;
+            var source_split = node_source.split("/");
+            var img_path = source_split[source_split.length-1];
+            if(img_path.includes("200d_2640.png")){
+                img_path = img_path.replace("_200d_2640", "");
+            }
+            if(img_path in emojidict){
+                var emoji_url = emojipedia + emojidict[img_path];
+                current_node.src = emoji_url;
+            }
         }
     }
 }
@@ -1239,7 +1250,7 @@ let chat = document.getElementById('js_1');
 function checkurl(){
     newUrl = window.location.href;
     if(oldUrl!= newUrl){
-        setTimeout(changeAll,500);
+        setTimeout(changeAll,3000);
         oldUrl = newUrl;
         retries = 0;
     }
@@ -1248,5 +1259,7 @@ var retries = 0;
 var oldUrl = window.location.href;
 var newUrl = window.location.href;
 
+var new_chat_interval = setInterval(changeAll,500);
+var old_chat_interval = setInterval(changeAll, 500);
 var variableinterval = setInterval(changeAll, 500);
 var websiteinterval = setInterval(checkurl, 200);
