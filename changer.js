@@ -1,4 +1,4 @@
-console.log("hello!")
+console.log("Hello👋 ! We know there are a lot of messenger addons which replace new emojis with the old ones🙃. So we're happy you're with us!😘")
 const emojipedia = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/facebook/65/";
 
 var emojidict = {       
@@ -1198,35 +1198,28 @@ let callback = function(list){
 
 function changeAll(){
     let new_chat = document.querySelector('[aria-label="Messages"]')
-    let old_chat = document.getElementById('js_1');
     try{
         if(new_chat){
+            clearInterval(new_chat_interval);
             new_observer = new MutationObserver(callback);
             new_observer.observe(new_chat, config);
-        }
-        if(old_chat){
-            old_observer = new MutationObserver(callback);
-            old_observer.observe(old_chat, config);
-        }
-        if(new_chat || old_chat){
-            clearInterval(variableinterval);
-            clearInterval(new_chat_interval);
-            clearInterval(old_chat_interval);
-            new_chat_interval = setInterval(changeNode(new_chat),2000)
-            old_chat_interval = setInterval(changeNode(old_chat),2000)
+            let open_emojis = document.querySelector('[aria-label="Choose an emoji"]');
+            open_emojis.onclick = openEmojis; 
+            new_chat_interval = setInterval(changeNode,2000, new_chat);
+            changeNode(new_chat);
             retries = 0;
         }
     }
-    catch(error){
+    catch(error){  
         retries = retries+1;
-        if(retries > 10){
-            clearInterval(variableinterval);
+        if(retries > 50){
+            clearInterval(new_chat_interval);
             return;
         }
     }
 }
 function changeNode(node){
-    if(node){
+    if(node && node.nodeType==1){
         var node_children = node.getElementsByTagName("img");
         for(var i = 0; i<node_children.length; i++){
             var current_node = node_children[i];    
@@ -1244,9 +1237,30 @@ function changeNode(node){
     }
 }
 
+function openEmojis(){
+    if(document.getElementsByClassName("_2znk").length<=0){
+        emoji_window_interval = setInterval(findEmojiWindow, 500);
+    }
+}
+function findEmojiWindow(){
+    let emoji_window = document.getElementsByClassName("_2znk");
+
+    //Edge case when a user clicks the emoji button but then immediately closes it.
+    new_emoji_window = emoji_window
+    if(prev_emoji_window.length>=1 && new_emoji_window.length<=0){
+        clearInterval(emoji_window_interval);
+    }
+    prev_emoji_window = [...new_emoji_window];
+
+    if(emoji_window.length>=1 && !emoji_window[0].querySelector('[role="progressbar"]')){
+        clearInterval(emoji_window_interval);
+        new_observer = new MutationObserver(callback);
+        new_observer.observe(emoji_window[0], config);
+        changeNode(emoji_window[0]);
+    }
+}
 
 let config = {childList:true, subtree:true};
-let chat = document.getElementById('js_1');
 
 function checkurl(){
     newUrl = window.location.href;
@@ -1256,11 +1270,14 @@ function checkurl(){
         retries = 0;
     }
 }
+
 var retries = 0;
 var oldUrl = window.location.href;
 var newUrl = window.location.href;
 
-var new_chat_interval = setInterval(changeAll,500);
-var old_chat_interval = setInterval(changeAll, 500);
-var variableinterval = setInterval(changeAll, 500);
+
+var emoji_window_interval; 
+let prev_emoji_window=[];
+let new_emoji_window=[];
+var new_chat_interval = setInterval(changeAll,100);
 var websiteinterval = setInterval(checkurl, 200);
