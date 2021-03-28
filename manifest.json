@@ -20,5 +20,8 @@
             "js":["changer.js"]
         }
     ],
-    "manifest_version": 2
+    "web_accessible_resources": [
+        "emojis/*"
+    ],
+    "manifest_version":2
  }
