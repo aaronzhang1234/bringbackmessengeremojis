@@ -1,6 +1,6 @@
 {
     "name": "Bring back old Messenger Emojis",
-    "version": "1.3",
+    "version": "1.4",
     "description": "Converts the new messenger emojis to the cooler old ones",
     "background":{
         "scripts":["background.js"],
