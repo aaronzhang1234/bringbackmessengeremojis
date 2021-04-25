@@ -15,7 +15,7 @@ let callback = function(list){
 }
 
 function findRoot(){
-    let root = document.querySelector('[data-pagelet="root"]')
+    let root = document.querySelector("body")
     try{
         if(root){
             clearInterval(find_root_interval);
