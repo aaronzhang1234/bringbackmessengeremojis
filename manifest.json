@@ -1,7 +1,7 @@
 {
     "manifest_version":3,
     "name": "Bring back old Messenger Emojis",
-    "version": "1.5",
+    "version": "1.6",
     "description": "Converts the new messenger emojis to the cooler old ones",
     "action":{
         "default_icon":{
