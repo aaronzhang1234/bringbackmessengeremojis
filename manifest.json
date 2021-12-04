@@ -1,12 +1,9 @@
 {
+    "manifest_version":3,
     "name": "Bring back old Messenger Emojis",
-    "version": "1.4",
+    "version": "1.5",
     "description": "Converts the new messenger emojis to the cooler old ones",
-    "background":{
-        "scripts":["background.js"],
-        "persistent":false
-    },
-    "page_action":{
+    "action":{
         "default_icon":{
             "16":"eyes.png",
             "24":"eyes.png",
@@ -20,8 +17,8 @@
             "js":["changer.js"]
         }
     ],
-    "web_accessible_resources": [
-        "emojis/*"
-    ],
-    "manifest_version":2
+    "web_accessible_resources": [{
+        "resources":["emojis/*"],
+        "matches":["https://www.messenger.com/*"]
+    }]
  }

@@ -45,7 +45,7 @@ function changeNode(node){
                 img_path = img_path.replace("_200d_2640", "");
             }
             if(emojilist.includes(img_path)){
-                current_node.src =chrome.extension.getURL(`/emojis/${img_path}`); 
+                current_node.src =chrome.runtime.getURL(`/emojis/${img_path}`); 
             }
         }
     }
